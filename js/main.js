@@ -5,6 +5,8 @@ import { createMap } from './map-init.js';
 import { loadFloorData } from './data-loader.js';
 import { buildFloorLayer } from './layers.js';
 import { createFloorControl } from './floor-control.js';
+import { createGridControl } from './grid.js';
+import { createCompass } from './compass.js';
 
 async function main() {
   const map = createMap('map');
@@ -33,8 +35,10 @@ async function main() {
   map.fitBounds(L.geoJSON(allFeatures).getBounds(), { padding: [40, 40] });
 
   // Kontrol pemilih lantai
+  const floorControlEl = document.getElementById('floor-control');
+
   createFloorControl({
-    container: document.getElementById('floor-control'),
+    container: floorControlEl,
     floors: CONFIG.floors,
     initialFloor: currentFloor,
     floorStyle: CONFIG.floorStyle,
@@ -44,6 +48,20 @@ async function main() {
       layers[floorId].addTo(map);
       currentFloor = floorId;
     },
+  });
+
+  // Grid cartesius (kisi + sumbu) dan tombol togglenya, di panel yang sama.
+  // Dibuat setelah floor control karena floor control mengosongkan container.
+  createGridControl({
+    map,
+    config: CONFIG.grid,
+    container: floorControlEl,
+  });
+
+  // Kompas statis di pojok kiri atas
+  createCompass({
+    container: document.getElementById('compass'),
+    config: CONFIG.compass,
   });
 }
 
