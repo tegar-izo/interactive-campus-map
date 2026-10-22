@@ -1,0 +1,69 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": { "nama": "Ruang Rapat", "tipe": "meeting" },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [0, 0],
+            [70, 0],
+            [70, 50],
+            [0, 50],
+            [0, 0]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": { "nama": "Open Office", "tipe": "office" },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [70, 0],
+            [120, 0],
+            [120, 50],
+            [70, 50],
+            [70, 0]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": { "nama": "Pantry", "tipe": "utility" },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [0, 50],
+            [50, 50],
+            [50, 110],
+            [0, 110],
+            [0, 50]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": { "nama": "Arsip", "tipe": "utility" },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [50, 50],
+            [120, 50],
+            [120, 110],
+            [50, 110],
+            [50, 50]
+          ]
+        ]
+      }
+    }
+  ]
+}
