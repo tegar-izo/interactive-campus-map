@@ -2,61 +2,113 @@
   box-sizing: border-box;
 }
 
+html,
+body {
+  height: 100%;
+}
+
 body {
   margin: 0;
-  font-family:
-    -apple-system,
-    BlinkMacSystemFont,
-    Segoe UI,
-    sans-serif;
+  display: flex;
+  flex-direction: column;
+  font-family: Arial, Helvetica, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  background: #fff;
 }
 
+/* Judul aplikasi di bar abu-abu atas */
+.app-header {
+  flex: none;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #e3e3e3;
+}
+
+.app-title {
+  margin: 0;
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: -0.2px;
+  color: #111;
+}
+
+/* Kanvas peta mengisi sisa layar */
 #map {
-  height: 100vh;
+  flex: 1;
+  min-height: 0;
   width: 100%;
   position: relative; /* jangkar untuk kompas & panel kontrol */
-  background: #f4f4f4; /* latar netral, bukan peta dunia */
+  background: #fff;
 }
 
+/* Denah SVG sebagai latar, tidak menangkap klik */
+.plan-image {
+  pointer-events: none;
+}
+
+/* Panel lantai: tombol bulat bertumpuk di sisi kanan */
 .floor-control {
   position: absolute;
   top: 50%;
-  right: 20px;
+  right: 4px;
   transform: translateY(-50%);
-  background: white;
-  border-radius: 8px;
-  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.15);
-  z-index: 1000;
-  padding: 8px;
   display: flex;
   flex-direction: column;
   gap: 4px;
+  z-index: 1000;
 }
 
 .floor-control button {
-  padding: 8px 16px;
+  width: 46px;
+  height: 46px;
+  padding: 0;
   border: none;
-  border-radius: 6px;
-  background: #f5f5f5;
+  border-radius: 50%;
+  background: #b3b3b3;
+  color: #fff;
+  font-size: 20px;
+  font-weight: 600;
+  font-family: inherit;
+  line-height: 1;
   cursor: pointer;
-  font-size: 14px;
-  font-weight: 500;
-  min-width: 90px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.28);
   transition: background 0.15s;
 }
 
 .floor-control button:hover {
-  background: #e0e0e0;
+  background: #9c9c9c;
 }
+
 .floor-control button.active {
-  background: #2c7be5;
-  color: white;
+  background: #e5271c;
+}
+
+.floor-control button.active:hover {
+  background: #c92117;
+}
+
+/* Label lantai aktif di bawah tengah */
+.floor-label {
+  position: absolute;
+  left: 50%;
+  bottom: 18px;
+  transform: translateX(-50%);
+  min-width: 120px;
+  padding: 6px 22px;
+  border-radius: 999px;
+  background: #dcdcdc;
+  color: #333;
+  font-size: 15px;
+  text-align: center;
+  z-index: 1000;
+  pointer-events: none;
 }
 
 /* Pemisah antara tombol lantai dan tombol Grid */
 .floor-control .panel-separator {
   height: 1px;
-  background: #e8e8e8;
+  background: rgba(255, 255, 255, 0.6);
   margin: 6px 0 2px;
 }
 
@@ -65,11 +117,9 @@ body {
   align-items: center;
   justify-content: center;
   gap: 6px;
-}
-
-.floor-control .grid-toggle__icon {
+  width: 46px;
+  height: 46px;
   font-size: 15px;
-  line-height: 1;
 }
 
 /* Label koordinat pada sumbu X dan Y */
@@ -103,13 +153,30 @@ body {
   transform: translate(calc(-100% - 6px), -50%);
 }
 
-/* Kompas statis di pojok kiri atas */
+/* Nama ruangan pada lantai yang belum punya gambar denah */
+.room-label {
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  color: #222;
+  font-size: 11px;
+  font-weight: 500;
+  text-align: center;
+  white-space: nowrap;
+  pointer-events: none;
+}
+
+.room-label::before {
+  display: none;
+}
+
+/* Kompas statis di pojok kanan atas */
 .compass {
   position: absolute;
-  top: 20px;
-  left: 20px;
-  width: var(--compass-size, 56px);
-  height: var(--compass-size, 56px);
+  top: 16px;
+  right: 16px;
+  width: var(--compass-size, 84px);
+  height: var(--compass-size, 84px);
   z-index: 1000;
 }
 
@@ -118,41 +185,39 @@ body {
   width: 100%;
   height: 100%;
   border-radius: 50%;
-  background: #fff;
-  border: 1px solid #d5d5d5;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.18);
+  background: #ececec;
 }
 
 .compass__letter {
   position: absolute;
-  font-size: 11px;
+  font-size: 12px;
   font-weight: 700;
   line-height: 1;
-  color: #444;
+  color: #555;
   pointer-events: none;
 }
 
 .compass__letter--n {
-  top: 4px;
+  top: 9px;
   left: 50%;
   transform: translateX(-50%);
-  color: #c0392b;
+  color: #e5271c;
 }
 
 .compass__letter--e {
-  right: 5px;
+  right: 9px;
   top: 50%;
   transform: translateY(-50%);
 }
 
 .compass__letter--s {
-  bottom: 4px;
+  bottom: 9px;
   left: 50%;
   transform: translateX(-50%);
 }
 
 .compass__letter--w {
-  left: 5px;
+  left: 9px;
   top: 50%;
   transform: translateY(-50%);
 }
@@ -178,14 +243,14 @@ body {
 .compass__needle::before {
   top: 50%;
   transform: translate(-50%, -100%);
-  border-bottom: 12px solid #e74c3c;
+  border-bottom: 16px solid #e5271c;
 }
 
 /* ujung selatan */
 .compass__needle::after {
   top: 50%;
   transform: translate(-50%, 0);
-  border-top: 12px solid #f7f7f7;
+  border-top: 16px solid #444;
 }
 
 .compass__tip {
@@ -212,9 +277,33 @@ body {
 }
 
 @media (max-width: 600px) {
+  .app-header {
+    height: 56px;
+  }
+
+  .app-title {
+    font-size: 20px;
+  }
+
+  .compass {
+    width: var(--compass-size, 72px);
+    height: var(--compass-size, 72px);
+  }
+
   .floor-control button {
-    min-width: 70px;
-    padding: 6px 10px;
-    font-size: 13px;
+    width: 42px;
+    height: 42px;
+    font-size: 18px;
+  }
+
+  .floor-control .grid-toggle {
+    width: 42px;
+    height: 42px;
+  }
+
+  .floor-label {
+    min-width: 110px;
+    padding: 5px 20px;
+    font-size: 14px;
   }
 }

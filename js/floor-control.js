@@ -1,4 +1,4 @@
-// Membuat tombol pemilih lantai secara dinamis di dalam container.
+// Membuat tombol pemilih lantai bulat (1, 2, 3) di dalam container.
 
 export function createFloorControl({ container, floors, initialFloor, floorStyle, onSelect }) {
   container.innerHTML = '';
@@ -6,10 +6,13 @@ export function createFloorControl({ container, floors, initialFloor, floorStyle
 
   floors
     .slice()
-    .sort((a, b) => b - a) // tampilkan lantai tertinggi di atas
+    .sort((a, b) => a - b) // lantai 1 di atas, sesuai desain
     .forEach((floorId) => {
       const btn = document.createElement('button');
-      btn.textContent = floorStyle[floorId].label;
+      btn.type = 'button';
+      btn.textContent = floorId;
+      btn.title = floorStyle[floorId].label;
+      btn.setAttribute('aria-label', floorStyle[floorId].label);
 
       btn.addEventListener('click', () => {
         buttons.forEach((b, id) => b.classList.toggle('active', id === floorId));

@@ -3,15 +3,21 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Demo Peta Indoor — Modular</title>
+    <meta name="theme-color" content="#e3e3e3" />
+    <title>Interactive Campus Map</title>
     <link rel="stylesheet" href="./lib/leaflet/leaflet.css" />
     <link rel="stylesheet" href="css/style.css" />
   </head>
   <body>
-    <div id="map">
+    <header class="app-header">
+      <h1 class="app-title">Interactive Campus Map</h1>
+    </header>
+
+    <main id="map">
       <div id="compass"></div>
       <div id="floor-control" class="floor-control"></div>
-    </div>
+      <div id="floor-label" class="floor-label">lantai 1</div>
+    </main>
 
     <script src="./lib/leaflet/leaflet.js"></script>
     <script type="module" src="js/main.js"></script>

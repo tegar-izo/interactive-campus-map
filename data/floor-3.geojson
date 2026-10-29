@@ -1,0 +1,133 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": { "nama": "Ruang Kuliah 301", "tipe": "kelas" },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [0, 50],
+            [40, 50],
+            [40, 110],
+            [0, 110],
+            [0, 50]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": { "nama": "Ruang Kuliah 302", "tipe": "kelas" },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [40, 50],
+            [80, 50],
+            [80, 110],
+            [40, 110],
+            [40, 50]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": { "nama": "Ruang Kuliah 303", "tipe": "kelas" },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [80, 50],
+            [120, 50],
+            [120, 110],
+            [80, 110],
+            [80, 50]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": { "nama": "Laboratorium Komputer", "tipe": "laboratorium" },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [0, 0],
+            [55, 0],
+            [55, 50],
+            [0, 50],
+            [0, 0]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": { "nama": "Ruang Dosen", "tipe": "kantor" },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [55, 20],
+            [85, 20],
+            [85, 50],
+            [55, 50],
+            [55, 20]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": { "nama": "Tangga", "tipe": "stairs" },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [85, 20],
+            [120, 20],
+            [120, 50],
+            [85, 50],
+            [85, 20]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": { "nama": "Toilet", "tipe": "toilet" },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [55, 0],
+            [85, 0],
+            [85, 20],
+            [55, 20],
+            [55, 0]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": { "nama": "Ruang Server", "tipe": "utility" },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [85, 0],
+            [120, 0],
+            [120, 20],
+            [85, 20],
+            [85, 0]
+          ]
+        ]
+      }
+    }
+  ]
+}

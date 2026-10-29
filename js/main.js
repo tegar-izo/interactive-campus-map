@@ -8,6 +8,15 @@ import { createFloorControl } from './floor-control.js';
 import { createGridControl } from './grid.js';
 import { createCompass } from './compass.js';
 
+// Area yang harus terlihat untuk sebuah lantai: denah (bila ada) + semua ruangan.
+function boundsForFloor(datasets, floorId) {
+  const bounds = L.latLngBounds([]);
+  const plan = CONFIG.planImages[floorId];
+  if (plan) bounds.extend(plan.bounds);
+  bounds.extend(L.geoJSON(datasets[floorId]).getBounds());
+  return bounds;
+}
+
 async function main() {
   const map = createMap('map');
 
@@ -27,18 +36,18 @@ async function main() {
   let currentFloor = CONFIG.initialFloor;
   layers[currentFloor].addTo(map);
 
-  // Fit tampilan ke keseluruhan denah semua lantai (supaya konsisten saat ganti lantai)
-  const allFeatures = {
-    type: 'FeatureCollection',
-    features: Object.values(datasets).flatMap((fc) => fc.features),
+  const floorLabelEl = document.getElementById('floor-label');
+  const floorLabel = (floorId) => `lantai ${floorId}`;
+  floorLabelEl.textContent = floorLabel(currentFloor);
+
+  const fitToFloor = (floorId) => {
+    map.fitBounds(boundsForFloor(datasets, floorId), { padding: [16, 16] });
   };
-  map.fitBounds(L.geoJSON(allFeatures).getBounds(), { padding: [40, 40] });
+  fitToFloor(currentFloor);
 
   // Kontrol pemilih lantai
-  const floorControlEl = document.getElementById('floor-control');
-
   createFloorControl({
-    container: floorControlEl,
+    container: document.getElementById('floor-control'),
     floors: CONFIG.floors,
     initialFloor: currentFloor,
     floorStyle: CONFIG.floorStyle,
@@ -47,18 +56,22 @@ async function main() {
       layers[currentFloor].removeFrom(map);
       layers[floorId].addTo(map);
       currentFloor = floorId;
+      floorLabelEl.textContent = floorLabel(floorId);
+      fitToFloor(floorId);
     },
   });
 
-  // Grid cartesius (kisi + sumbu) dan tombol togglenya, di panel yang sama.
-  // Dibuat setelah floor control karena floor control mengosongkan container.
-  createGridControl({
-    map,
-    config: CONFIG.grid,
-    container: floorControlEl,
-  });
+  // Grid cartesius (kisi + sumbu) beserta tombol togglenya. Opsional:
+  // dimatikan lewat CONFIG.grid.visible/showToggle agar sesuai desain.
+  if (CONFIG.grid.showToggle || CONFIG.grid.visible) {
+    createGridControl({
+      map,
+      config: CONFIG.grid,
+      container: document.getElementById('floor-control'),
+    });
+  }
 
-  // Kompas statis di pojok kiri atas
+  // Kompas statis di pojok kanan atas
   createCompass({
     container: document.getElementById('compass'),
     config: CONFIG.compass,

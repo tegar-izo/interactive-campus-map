@@ -3,16 +3,16 @@
   "features": [
     {
       "type": "Feature",
-      "properties": { "nama": "Ruang Kiri Atas", "tipe": "room" },
+      "properties": { "nama": "Mushola", "tipe": "ibadah" },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
           [
-            [0.8, 43.3],
-            [10, 43.3],
-            [10, 56],
-            [0.8, 56],
-            [0.8, 43.3]
+            [0.1, 56],
+            [9.5, 56],
+            [9.5, 43.16],
+            [0.1, 43.16],
+            [0.1, 56]
           ]
         ]
       }
@@ -24,128 +24,43 @@
         "type": "Polygon",
         "coordinates": [
           [
-            [10, 45.8],
-            [23.6, 45.8],
-            [23.6, 56],
-            [10, 56],
-            [10, 45.8]
+            [9.5, 56],
+            [22.86, 56],
+            [22.86, 45.63],
+            [9.5, 45.63],
+            [9.5, 56]
           ]
         ]
       }
     },
     {
       "type": "Feature",
-      "properties": { "nama": "Galery ITEBA", "tipe": "room" },
+      "properties": { "nama": "Galery PMB", "tipe": "galeri" },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
           [
-            [0.5, 33],
-            [26.4, 33],
-            [26.4, 40.7],
-            [0.5, 40.7],
-            [0.5, 33]
+            [0.1, 40.45],
+            [25.82, 40.45],
+            [25.82, 32.8],
+            [0.1, 32.8],
+            [0.1, 40.45]
           ]
         ]
       }
     },
     {
       "type": "Feature",
-      "properties": { "nama": "Lobby luar Lt. 1", "tipe": "hall" },
+      "properties": { "nama": "Perpustakaan", "tipe": "ruang baca" },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
           [
-            [10, 43.3],
-            [10, 45.8],
-            [23.6, 45.8],
-            [23.6, 56],
-            [41.3, 56],
-            [41.3, 37.4],
-            [37.6, 35.3],
-            [37.6, 33],
-            [26.4, 33],
-            [26.4, 40.7],
-            [0.7, 40.7],
-            [0.7, 43.3],
-            [10, 43.3]
-          ]
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": { "nama": "Perpustakaan", "tipe": "room" },
-      "geometry": {
-        "type": "Polygon",
-        "coordinates": [
-          [
-            [41.3, 37.4],
-            [70.6, 37.4],
-            [70.6, 56],
-            [41.3, 56],
-            [41.3, 37.4]
-          ]
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": { "nama": "Ramp Koridor Utama", "tipe": "corridor" },
-      "geometry": {
-        "type": "Polygon",
-        "coordinates": [
-          [
-            [37.6, 32.4],
-            [37.6, 35.3],
-            [41.3, 37.4],
-            [70.6, 37.4],
-            [70.6, 37],
-            [82.9, 37],
-            [82.9, 1.7],
-            [77.6, 1.7],
-            [77.7, 32.4],
-            [37.6, 32.4]
-          ]
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": { "nama": "Tangga koridor utama", "tipe": "stairs" },
-      "geometry": {
-        "type": "Polygon",
-        "coordinates": [
-          [
-            [48.9, 32.4],
-            [77.7, 32.4],
-            [77.7, 29],
-            [48.9, 29],
-            [48.9, 32.4]
-          ]
-        ]
-      }
-    },
-    {
-      "type": "Feature",
-      "properties": { "nama": "Open Office", "tipe": "lobby dalam" },
-      "geometry": {
-        "type": "Polygon",
-        "coordinates": [
-          [
-            [70.6, 37],
-            [82.9, 37],
-            [82.9, 17.1],
-            [100.5, 17.1],
-            [100.6, 19.4],
-            [88.9, 19.4],
-            [88.9, 33],
-            [91.1, 33],
-            [91.1, 39.8],
-            [101, 39.8],
-            [101, 56],
-            [70.6, 56],
-            [70.6, 37]
+            [40.41, 56],
+            [69.35, 56],
+            [69.35, 37.24],
+            [40.41, 37.24],
+            [40.41, 56]
           ]
         ]
       }
@@ -157,75 +72,125 @@
         "type": "Polygon",
         "coordinates": [
           [
-            [91.1, 33],
-            [100.9, 33],
-            [100.9, 40],
-            [91.1, 40],
-            [91.1, 33]
+            [89.72, 39.71],
+            [101, 39.71],
+            [101, 33.04],
+            [89.72, 33.04],
+            [89.72, 39.71]
           ]
         ]
       }
     },
     {
       "type": "Feature",
-      "properties": { "nama": "Ruang Kanan 1", "tipe": "room" },
+      "properties": { "nama": "Toilet Wanita", "tipe": "toilet" },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
           [
-            [88.9, 25.6],
-            [100.7, 25.6],
-            [100.8, 33],
-            [88.9, 33],
-            [88.9, 25.6]
+            [89.53, 32.06],
+            [101, 32.06],
+            [101, 25.64],
+            [89.53, 25.64],
+            [89.53, 32.06]
           ]
         ]
       }
     },
     {
       "type": "Feature",
-      "properties": { "nama": "Ruang Kanan 2", "tipe": "room" },
+      "properties": { "nama": "Toilet Pria", "tipe": "toilet" },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
           [
-            [88.9, 19.4],
-            [100.6, 19.4],
-            [100.7, 25.6],
-            [88.9, 25.6],
-            [88.9, 19.4]
+            [89.53, 25.64],
+            [101, 25.64],
+            [101, 19.47],
+            [89.53, 19.47],
+            [89.53, 25.64]
           ]
         ]
       }
     },
     {
       "type": "Feature",
-      "properties": { "nama": "Ruang Kanan Bawah", "tipe": "room" },
+      "properties": { "nama": "Auditorium", "tipe": "aula" },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
           [
-            [82.9, 1.7],
-            [100.3, 1.7],
-            [100.5, 17.1],
-            [82.9, 17.1],
-            [82.9, 1.7]
+            [81.47, 17],
+            [101, 17],
+            [101, 1.7],
+            [81.47, 1.7],
+            [81.47, 17]
           ]
         ]
       }
     },
     {
       "type": "Feature",
-      "properties": { "nama": "Ruang Besar", "tipe": "room" },
+      "properties": { "nama": "Taman", "tipe": "taman" },
       "geometry": {
         "type": "Polygon",
         "coordinates": [
           [
-            [0.1, 22.7],
-            [69.1, 22],
-            [68.8, 1.7],
-            [0.1, 2],
-            [0.1, 22.7]
+            [-0.39, 22.43],
+            [69.35, 22.43],
+            [69.35, 2.19],
+            [-0.39, 2.19],
+            [-0.39, 22.43]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": { "nama": "Parkiran", "tipe": "parkir" },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [-0.39, 1.2],
+            [101, 1.2],
+            [101, -9.16],
+            [-0.39, -9.16],
+            [-0.39, 1.2]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": { "nama": "Koridor", "tipe": "koridor" },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [0.1, 43.16],
+            [9.5, 43.16],
+            [9.5, 45.63],
+            [22.86, 45.63],
+            [22.86, 56],
+            [40.41, 56],
+            [40.41, 37.24],
+            [69.35, 37.24],
+            [69.35, 56],
+            [101, 56],
+            [101, 32.06],
+            [89.53, 32.06],
+            [89.53, 19.47],
+            [101, 19.47],
+            [101, 17],
+            [81.47, 17],
+            [81.47, 1.7],
+            [76.77, 1.7],
+            [76.77, 32.8],
+            [25.82, 32.8],
+            [25.82, 40.45],
+            [0.1, 40.45],
+            [0.1, 43.16]
           ]
         ]
       }
