@@ -22,7 +22,7 @@ npm test         # node --test, tanpa dependency
 
 | File | Isi |
 | --- | --- |
-| `js/config.js` | Semua konstanta: `CONFIG.planImages`, `CONFIG.grid`, `CONFIG.compass`, gaya lantai |
+| `js/config.js` | Semua konstanta: `CONFIG.planImages`, `CONFIG.grid`, `CONFIG.compass`, gaya lantai, dan warna per tipe ruangan (`CONFIG.tipeColors`) |
 | `js/grid.js` | Kisi, sumbu, label koordinat, dan tombol toggle Grid (opsional) |
 | `js/compass.js` | Kompas statis (utara = sumbu +Y) |
 | `js/map-init.js` | Inisialisasi peta, pane denah/kisi/sumbu |
@@ -38,9 +38,9 @@ npm test         # node --test, tanpa dependency
 | `data/floor-1.geojson` | Ruangan Lantai 1 |
 | `data/floor-2.geojson` | Ruangan Lantai 2 |
 | `data/floor-3.geojson` | **Data contoh** Lantai 3 (belum divalidasi ke gedung) |
-| `data/floor-1-iteba-map.svg` | Gambar denah Lantai 1, dipasang lewat `CONFIG.planImages[1]` |
+| `data/floor-1-map.svg` | Gambar denah Lantai 1, dipasang lewat `CONFIG.planImages[1]` |
 
-Lantai yang punya `planImages` memakai gambar denah sebagai latar; lantai tanpa gambar menampilkan nama ruangan sebagai label di tengah polygon.
+Lantai yang punya `planImages` memakai gambar denah sebagai latar; lantai tanpa gambar menampilkan nama ruangan sebagai label di tengah polygon. Warna isi polygon diambil dari `CONFIG.tipeColors` berdasarkan properti `tipe` tiap fitur, dengan warna lantai sebagai cadangan.
 
 ### Kalibrasi overlay denah
 

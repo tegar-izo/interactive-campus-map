@@ -18,7 +18,7 @@ export const CONFIG = {
   // data/floor-1.geojson sehingga polygon ruangan menimpa denah dengan pas.
   planImages: {
     1: {
-      path: 'data/floor-1-iteba-map.svg',
+      path: 'data/floor-1-map.svg',
       bounds: [
         [57.48, -1.38],
         [-10.15, 102.98],
@@ -30,6 +30,27 @@ export const CONFIG = {
     1: { color: '#2c7be5', fill: '#2c7be5', label: 'Lantai 1' },
     2: { color: '#e67e22', fill: '#e67e22', label: 'Lantai 2' },
     3: { color: '#27ae60', fill: '#27ae60', label: 'Lantai 3' },
+  },
+
+  // Warna polygon per tipe ruangan (properti "tipe" pada GeoJSON) agar tiap
+  // jenis ruangan mudah dibedakan. Tipe yang tidak terdaftar memakai warna
+  // lantai (floorStyle).
+  tipeColors: {
+    ibadah: '#8e44ad',
+    stairs: '#7f8c8d',
+    galeri: '#e67e22',
+    'ruang baca': '#2980b9',
+    toilet: '#16a085',
+    aula: '#c0392b',
+    taman: '#27ae60',
+    parkir: '#546e7a',
+    koridor: '#f1c40f',
+    meeting: '#d35400',
+    office: '#2c7be5',
+    utility: '#95a5a6',
+    kelas: '#e74c3c',
+    laboratorium: '#3498db',
+    kantor: '#9b59b6',
   },
 
   // Grid cartesius: kisi kotak + sumbu X/Y (1 unit koordinat = 1 meter).

@@ -5,6 +5,24 @@ import { CONFIG } from './config.js';
 
 export const PLAN_PANE = 'plan-pane';
 
+const FILL_OPACITY = 0.3;
+const FILL_OPACITY_HOVER = 0.55;
+
+// Warna polygon mengikuti tipe ruangan; lantai hanya jadi cadangan.
+function colorFor(feature, floorStyle) {
+  return CONFIG.tipeColors[feature.properties.tipe] ?? floorStyle.fill;
+}
+
+function baseStyle(feature, floorStyle) {
+  const color = colorFor(feature, floorStyle);
+  return {
+    color,
+    weight: 1.5,
+    fillColor: color,
+    fillOpacity: FILL_OPACITY,
+  };
+}
+
 export function buildFloorLayer(geojson, floorId) {
   const style = CONFIG.floorStyle[floorId];
   const plan = CONFIG.planImages[floorId];
@@ -21,17 +39,13 @@ export function buildFloorLayer(geojson, floorId) {
   }
 
   L.geoJSON(geojson, {
-    style: {
-      color: style.color,
-      weight: 1.5,
-      fillColor: style.fill,
-      fillOpacity: 0.12,
-    },
+    style: (feature) => baseStyle(feature, style),
     onEachFeature: (feature, layer) => {
       const { nama, tipe } = feature.properties;
+      const color = colorFor(feature, style);
       layer.bindPopup(
         `<b>${nama}</b><br>
-         <span style="color:${style.color}">${style.label}</span><br>
+         <span style="color:${color}">${style.label}</span><br>
          <small style="color:#888">${tipe}</small>`
       );
 
@@ -45,8 +59,8 @@ export function buildFloorLayer(geojson, floorId) {
         });
       }
 
-      layer.on('mouseover', () => layer.setStyle({ fillOpacity: 0.35 }));
-      layer.on('mouseout', () => layer.setStyle({ fillOpacity: 0.12 }));
+      layer.on('mouseover', () => layer.setStyle({ fillOpacity: FILL_OPACITY_HOVER }));
+      layer.on('mouseout', () => layer.setStyle({ fillOpacity: FILL_OPACITY }));
     },
   }).addTo(group);
 
